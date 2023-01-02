@@ -1,0 +1,9 @@
+[submodule "docarray/docarray"]
+	path = docarray/docarray
+	url = https://github.com/docarray/docarray.git
+[submodule "haystack/haystack"]
+	path = haystack/haystack
+	url = https://github.com/deepset-ai/haystack.git
+[submodule "txtai/txtai"]
+	path = txtai/txtai
+	url = https://github.com/neuml/txtai.git
