@@ -2,4 +2,4 @@ get-submodules:
 	git submodule update --init --recursive
 
 update-submodules: get-submodules
-	git submodule update --remote
+	git submodule update --remote --recursive
