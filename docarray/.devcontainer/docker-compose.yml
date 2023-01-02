@@ -8,6 +8,7 @@ services:
   volumes:
     - ..:/workspaces/docarray:cached
   command: sleep infinity
+  
  weaviate:
   command:
     - --host
