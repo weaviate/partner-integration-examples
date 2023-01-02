@@ -1,4 +1,4 @@
 datasets==2.8.0
-docarray[full,test]==0.4.4
+# docarray[full,test]==0.4.4
 ipykernel==6.19.4
-weaviate-client==3.10.0
+# weaviate-client==3.10.0
