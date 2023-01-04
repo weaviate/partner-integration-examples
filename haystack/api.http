@@ -1,0 +1,104 @@
+###----------------------------------------------------------------------------------------------------------------
+# haystack stuff
+# haystack health check
+curl -X 'GET' \
+  'http://localhost:8000/health' \
+  -H 'accept: application/json'
+
+###
+# use haystack to get all/some documents using filters on document's metadata
+curl -X 'POST' \
+  'http://localhost:8000/documents/get_by_filters' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "filters": {
+      "name": "seasons.txt"
+    }
+}'
+
+###
+# Ask a question using haystack
+curl -X 'POST' \
+  'http://localhost:8000/query' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "query": "Which day marks the return to work?",
+  "params": {},
+  "debug": false
+}'
+
+###----------------------------------------------------------------------------------------------------------------
+# Weaviate stuff
+# get info about current Weaviate instance
+GET http://weaviate:8080/v1/meta
+
+###
+# check weaviate nodes' health
+curl http://weaviate:8080/v1/nodes
+
+###
+# get all objects in Weaviate
+GET http://weaviate:8080/v1/objects
+
+###
+# get Weaviate schema
+GET http://weaviate:8080/v1/schema
+
+###
+# create a Document
+POST http://weaviate:8080/v1/objects
+Content-Type: application/json
+
+{
+  "class": "Document",
+  "properties": {
+    "name": "hello.txt",
+    "content_type": "text",
+    "content": "Hello world!"
+  }
+}
+
+###
+# delete a Document
+DELETE  http://weaviate:8080/v1/objects/Document/010750a4-aaf0-4ab9-9191-e4fe189cdce0
+
+###
+# get the content and vector representation of all Documents
+POST http://weaviate:8080/v1/graphql
+X-Request-Type: GraphQL
+Content-Type: application/json
+
+query {
+  Get {
+    Document {
+        content
+        _additional {
+          vector
+        }
+    }
+  }
+}
+
+###
+# get the content near a specified search term
+POST http://weaviate:8080/v1/graphql
+X-Request-Type: GraphQL
+Content-Type: application/json
+
+query {
+  Get {
+    Document(
+         nearText: {
+          concepts: ["a banana has more calories than it is long"]
+        }
+    )  {
+      content
+      _additional {
+        id
+        distance
+      } 
+    }
+  }
+}
