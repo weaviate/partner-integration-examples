@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Lauch Haystack API server",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "rest_api.application:app"
+            ],
+            "jinja": true,
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/haystack/rest_api",
+            "env": {
+                // "DOCUMENTSTORE_PARAMS_HOST": "elasticsearch",
+                "QUERY_PIPELINE_NAME": "query",
+                "PIPELINE_YAML_PATH": "/workspaces/haystack/pipelines.haystack-pipeline.yml"
+            },
+        }
+    ]
+}
