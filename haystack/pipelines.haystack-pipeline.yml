@@ -8,26 +8,7 @@ components: # define all the building-blocks for Pipeline
     params:
       host: http://weaviate
       similarity: "dot_product"
-      custom_schema:
-        classes:
-          - class: "Document"
-            # adding "description" will break the yaml validation. See https://github.com/deepset-ai/haystack/issues/3352
-            # description: "Haystack index, it's a class in Weaviate"
-            invertedIndexConfig:
-              cleanupIntervalSeconds: 60
-            vectorizer: text2vec-transformers
-            properties:
-              - name: "name"
-                # description: "Name Field"
-                dataType:
-                  - string
-              - name: "content"
-                # description: "Document Content (e.g. the text)"
-                dataType:
-                  - text
-            vectorIndexConfig:
-              distance: "dot"
-
+  
   - name: Retriever
     type: EmbeddingRetriever
     params:
