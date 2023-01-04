@@ -9,6 +9,13 @@ RUN pip install -r /tmp/requirements.txt \
 WORKDIR /workspaces/haystack/
 COPY ./haystack ./haystack
 RUN pip install -U pip
+
+RUN wget --no-check-certificate https://dl.xpdfreader.com/xpdf-tools-linux-4.04.tar.gz && \
+    tar -xvf xpdf-tools-linux-4.04.tar.gz && sudo cp xpdf-tools-linux-4.04/bin64/pdftotext /usr/local/bin
+    
+RUN apt update && \
+    apt-get install -y libsndfile1 ffmpeg
+
 RUN cd ./haystack && \
     pip install -e .[all] && \
     cd ./rest_api && \
