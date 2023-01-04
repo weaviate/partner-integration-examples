@@ -10,6 +10,8 @@ WORKDIR /workspaces/haystack/
 COPY ./haystack ./haystack
 RUN pip install -U pip
 RUN cd ./haystack && \
+    pip install -e .[all] && \
+    cd ./rest_api && \
     pip install -e .[all]
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
