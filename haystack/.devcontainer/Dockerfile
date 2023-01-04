@@ -1,4 +1,4 @@
-FROM deepset/haystack-cpu:a2c160e7d8e706cd8184eb984db5882350d9d876
+FROM mcr.microsoft.com/devcontainers/python:0-3.9
 
 # Copy environment.yml (if found) to a temp location so we update the environment. Also
 # copy "noop.txt" so the COPY instruction does not fail if no environment.yml exists.
