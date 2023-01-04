@@ -13,7 +13,7 @@ curl -X 'POST' \
   -H 'Content-Type: application/json' \
   -d '{
   "filters": {
-      "name": "seasons.txt"
+      "name": "33_David_Benioff.txt"
     }
 }'
 
@@ -24,7 +24,7 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "query": "Which day marks the return to work?",
+  "query": "Who is the father of Arya Stark?",
   "params": {},
   "debug": false
 }'
