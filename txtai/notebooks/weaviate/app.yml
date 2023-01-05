@@ -1,0 +1,23 @@
+embeddings:
+  path: sentence-transformers/nli-mpnet-base-v2
+
+nop:
+
+client.Weaviate:
+  url: http://weaviate:8080
+
+workflow:
+  index:
+    batch: 2500
+    tasks:
+    - action: [nop, transform]
+      merge: hstack
+      unpack: False
+    - action: client.Weaviate
+      unpack: False
+  search:
+    tasks:
+    - action: transform
+    - action: client.Weaviate
+      args: [search]
+ 
