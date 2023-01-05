@@ -1,0 +1,4 @@
+datasets==2.8.0
+ipykernel==6.19.4
+ipywidgets==8.0.4
+qdrant-txtai==0.10.3
