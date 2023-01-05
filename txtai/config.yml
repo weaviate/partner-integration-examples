@@ -1,0 +1,55 @@
+# Index file path
+path: /tmp/index
+
+# Allow indexing of documents
+writable: True
+
+# Enbeddings index
+embeddings:
+  path: sentence-transformers/nli-mpnet-base-v2
+
+# # Extractive QA
+# extractor:
+#   path: distilbert-base-cased-distilled-squad
+
+# # Zero-shot labeling
+# labels:
+
+# # Similarity
+# similarity:
+
+# # Text segmentation
+# segmentation:
+#     sentences: true
+
+# # Text summarization
+# summary:
+
+# # Text extraction
+# textractor:
+#     paragraphs: true
+#     minlength: 100
+#     join: true
+
+# # Transcribe audio to text
+# transcription:
+
+# # Translate text between languages
+# translation:
+
+# # Workflow definitions
+# workflow:
+#     sumfrench:
+#         tasks:
+#             - action: textractor
+#               task: url
+#             - action: summary
+#             - action: translation
+#               args: ["fr"]
+#     sumspanish:
+#         tasks:
+#             - action: textractor
+#               task: url
+#             - action: summary
+#             - action: translation
+#               args: ["es"]

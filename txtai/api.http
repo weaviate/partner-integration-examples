@@ -1,0 +1,26 @@
+###
+# add documents
+POST http://localhost:8000/add
+Content-Type: application/json
+
+[
+    {
+        "id": 0,
+        "text": "Correct",
+        "tags": null
+    },
+    {
+        "id": 1,
+        "text": "Not what we hoped",
+        "tags": null
+    }
+]
+
+###
+# index documents
+GET http://localhost:8000/index
+
+###
+# search
+GET http://localhost:8000/search
+?query=sad
