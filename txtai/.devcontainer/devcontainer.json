@@ -6,7 +6,7 @@
 	"service": "devcontainer",
 
 	// "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/docarray,type=bind",
-	"workspaceFolder": "/workspaces/docarray",
+	"workspaceFolder": "/workspaces/txtai",
 	"extensions": ["ms-python.python", "eamodio.gitlens", "humao.rest-client"]
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
