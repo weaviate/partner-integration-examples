@@ -7,7 +7,7 @@
 
 	// "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/docarray,type=bind",
 	"workspaceFolder": "/workspaces/txtai",
-	"extensions": ["ms-python.python", "eamodio.gitlens", "humao.rest-client"]
+	"extensions": ["ms-python.python", "eamodio.gitlens", "humao.rest-client", "SimonSiefke.svg-preview"]
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

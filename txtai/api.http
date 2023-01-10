@@ -24,3 +24,114 @@ GET http://localhost:8000/index
 # search
 GET http://localhost:8000/search
 ?query=sad
+
+###
+# executing workflows
+# run the "index" workflow
+POST http://127.0.0.1:8000/workflow
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "index",
+  "elements": [
+    "Correct", "Not what we hoped"
+  ]
+}
+
+###
+# run the "search" workflow
+POST http://127.0.0.1:8000/workflow
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "search",
+  "elements": [
+    "sad"
+  ]
+}
+
+###
+# Weaviate stuff
+# get info about current Weaviate instance
+GET http://weaviate:8080/v1/meta
+
+###
+# Is weaviate live?
+GET http://weaviate:8080/v1/.well-known/live
+
+###
+# check weaviate nodes' health
+curl http://weaviate:8080/v1/nodes
+
+###
+# get all objects in Weaviate
+GET http://weaviate:8080/v1/objects
+
+###
+# get Weaviate schema
+GET http://weaviate:8080/v1/schema
+
+###
+# create a Document
+POST http://weaviate:8080/v1/objects
+Content-Type: application/json
+
+{
+  "class": "Document",
+  "properties": {
+    "locale": "en",
+    "content": "Hi world in en!"
+  }
+}
+
+###
+# delete a Document
+DELETE  http://weaviate:8080/v1/objects/Document/010750a4-aaf0-4ab9-9191-e4fe189cdce0
+
+###
+# get the content and vector representation of all Documents
+POST http://weaviate:8080/v1/graphql
+X-Request-Type: GraphQL
+Content-Type: application/json
+
+query {
+  Get {
+    Document(where: {
+    path: ["locale"],
+    operator: Equal,
+    valueText: "no"
+  }) {
+        content
+        _additional {
+          vector
+          id
+        }
+    }
+  }
+}
+
+###
+# update the schema of a class
+curl \
+    -X PUT \
+    -H "Content-Type: application/json" \
+    -d '{
+        "class": "Document",
+        "invertedIndexConfig": {
+            "stopwords": {
+                "preset": "none"
+            }
+        }
+    }' \
+    http://weaviate:8080/v1/schema/Document
+
+###
+curl \
+    -X PUT \
+    -H "Content-Type: application/json" \
+    -d '{
+        "class": "Document"    }' \
+    http://weaviate:8080/v1/schema/Document
+

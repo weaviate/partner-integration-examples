@@ -8,6 +8,8 @@ services:
   volumes:
     - ..:/workspaces/docarray:cached
   command: sleep infinity
+  cap_add:
+    - SYS_PTRACE
   
  weaviate:
   command:

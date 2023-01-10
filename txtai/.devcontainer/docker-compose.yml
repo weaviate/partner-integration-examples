@@ -8,6 +8,8 @@ services:
   volumes:
     - ..:/workspaces/txtai:cached
   command: sleep infinity
+  cap_add:
+    - SYS_PTRACE
   
  weaviate:
   command:
