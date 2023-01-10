@@ -24,3 +24,31 @@ GET http://localhost:8000/index
 # search
 GET http://localhost:8000/search
 ?query=sad
+
+###
+# executing workflows
+# run the "index" workflow
+POST http://127.0.0.1:8000/workflow
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "index",
+  "elements": [
+    "Correct", "Not what we hoped"
+  ]
+}
+
+###
+# run the "search" workflow
+POST http://127.0.0.1:8000/workflow
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "search",
+  "elements": [
+    "sad"
+  ]
+}
+
