@@ -4,4 +4,11 @@ get-submodules:
 	git submodule update --init --recursive
 
 update-submodules:
-	git submodule update --remote --recursive
+	pushd docarray/docarray && \
+		git pull origin main
+	
+	pushd haystack/haystack && \
+		git pull origin main
+	
+	pushd txtai/txtai && \
+		git pull origin master
