@@ -1,3 +1,5 @@
+SHELL:=/bin/bash
+
 get-submodules:
 	git submodule update --init --recursive
 
