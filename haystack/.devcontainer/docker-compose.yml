@@ -30,6 +30,9 @@ services:
     DEFAULT_VECTORIZER_MODULE: 'none'
     ENABLE_MODULES: ''
     CLUSTER_HOSTNAME: 'node1'
+    LOG_LEVEL: debug # verbose
+    # LOG_LEVEL: trace # very verbose
+    GODEBUG: gctrace=1 # make go garbage collector verbose
 
  elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.6
