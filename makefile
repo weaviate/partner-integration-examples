@@ -12,3 +12,6 @@ update-submodules:
 	
 	pushd txtai/txtai && \
 		git pull origin master
+	
+	pushd gptindex/gptindex && \
+		git pull origin main

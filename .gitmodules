@@ -7,3 +7,6 @@
 [submodule "txtai/txtai"]
 	path = txtai/txtai
 	url = https://github.com/neuml/txtai.git
+[submodule "gptindex/gpt_index"]
+	path = gptindex/gpt_index
+	url = https://github.com/jerryjliu/gpt_index.git
