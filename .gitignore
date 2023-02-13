@@ -1,3 +1,7 @@
 data
 .ipynb_checkpoints
 __pycache__
+backup
+bug*
+*.zip
+.DS_Store
