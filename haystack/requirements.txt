@@ -2,3 +2,4 @@ datasets==2.8.0
 ipykernel==6.19.4
 ipywidgets==8.0.4
 py-spy==0.3.14
+weaviate-client==3.11.0
