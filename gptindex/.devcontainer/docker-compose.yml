@@ -6,7 +6,7 @@ services:
    context: ..
    dockerfile: .devcontainer/Dockerfile
   volumes:
-    - ..:/workspaces/txtai:cached
+    - ..:/workspaces/gpt_index:cached
   command: sleep infinity
   cap_add:
     - SYS_PTRACE
