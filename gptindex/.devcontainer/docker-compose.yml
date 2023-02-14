@@ -10,6 +10,8 @@ services:
   command: sleep infinity
   cap_add:
     - SYS_PTRACE
+  environment:
+    OPENAI_API_KEY: foo
   
  weaviate:
   command:
