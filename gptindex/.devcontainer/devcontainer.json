@@ -5,7 +5,7 @@
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "devcontainer",
 	// "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/docarray,type=bind",
-	"workspaceFolder": "/workspaces/gptindex",
+	"workspaceFolder": "/workspaces/gpt_index",
 	"extensions": [
 		"ms-python.python",
 		"eamodio.gitlens",
