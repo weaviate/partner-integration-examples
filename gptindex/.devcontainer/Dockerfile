@@ -12,6 +12,7 @@ RUN pip install -U pip
 
 RUN cd ./gpt_index && \
     pip install -e . \
+    pip install -r requirements.txt 
     # pip install -r requirements.txt
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
