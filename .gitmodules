@@ -7,3 +7,6 @@
 [submodule "txtai/txtai"]
 	path = txtai/txtai
 	url = https://github.com/neuml/txtai.git
+[submodule "langchain/langchain"]
+	path = langchain/langchain
+	url = https://github.com/hwchase17/langchain.git

@@ -12,3 +12,6 @@ update-submodules:
 	
 	pushd txtai/txtai && \
 		git pull origin master
+	
+	pushd langchain/langchain && \
+		git pull origin master
