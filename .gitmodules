@@ -10,3 +10,6 @@
 [submodule "gptindex/gpt_index"]
 	path = gptindex/gpt_index
 	url = https://github.com/jerryjliu/gpt_index.git
+[submodule "langchain/langchain"]
+	path = langchain/langchain
+	url = https://github.com/hwchase17/langchain.git
