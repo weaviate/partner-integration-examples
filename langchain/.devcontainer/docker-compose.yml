@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+ devcontainer:
+  build:
+   context: ..
+   dockerfile: .devcontainer/Dockerfile
+  volumes:
+    - ..:/workspaces/langchain:cached
+  command: sleep infinity
+  cap_add:
+    - SYS_PTRACE
+  environment:
+    OPENAI_API_KEY: foo
+  
+ weaviate:
+  command:
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8080'
+    - --scheme
+    - http
+  image: semitechnologies/weaviate:1.17.3
+  ports:
+    - "8080:8080"
+  restart: on-failure:0
+  environment:
+    QUERY_DEFAULTS_LIMIT: 25
+    AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+    PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+    DEFAULT_VECTORIZER_MODULE: text2vec-openai
+    ENABLE_MODULES: text2vec-openai
+    CLUSTER_HOSTNAME: 'node1'
+    LOG_LEVEL: debug # verbose
+    # LOG_LEVEL: trace # very verbose
+    GODEBUG: gctrace=1 # make go garbage collector verbose
+
+ qdrant:
+  image: qdrant/qdrant:v0.10.1
+  ports:
+    - "6333:6333"
+    - "6334:6334"
+  ulimits: # Only required for tests, as there are a lot of collections created
+    nofile:
+      soft: 65535
+      hard: 65535
