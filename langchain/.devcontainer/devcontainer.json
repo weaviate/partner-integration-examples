@@ -9,8 +9,8 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"GitHub.copilot",
-				"GitHub.copilot-labs",
+				"ms-toolsai.jupyter",
+				"GitHub.copilot-nightly",
 				"ms-python.python",
 				"eamodio.gitlens",
 				"humao.rest-client",
